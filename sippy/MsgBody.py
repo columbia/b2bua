@@ -59,6 +59,8 @@ class MsgBody(object):
     def localStr(self, local_addr = None, local_port = None):
         if type(self.content) == str:
             return self.content
+        elif isinstance(self.content, unicode):
+            return str(self.content)
         return self.content.localStr(local_addr, local_port)
 
     def getType(self):
